@@ -12,8 +12,7 @@ Load:
 
 `library(openprescribingRplots)`
 
-__This function plots a leaflet map of cost per person, per CCG, per month of the input BNF section, drug or chemcial.
-__
+__This function plots a leaflet map of cost per person, per CCG, per month of the input BNF section, drug or chemical.__
 
  *  plot2017()
 
