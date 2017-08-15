@@ -1,31 +1,26 @@
-#'Plot a leaflet map of total cost per CCG, per month of a BNF section, chemical or presentations.
+#'Plot a leaflet map of list size per CCG, per month.
 #'
-#' @param argument An ID unique to BNF sections, chemicals or presentations.
-#' @return Returns a leaflet plot (html widget) of total cost, per CCG, per month of the input BNF section, drug or chemcial.
+#' @return Returns a leaflet plot (html widget) of total list size, per CCG, per month.
 #' @importFrom magrittr "%>%"
 #' @export
 #' @examples
-#' plot2017total("7.4.5")
-plot2017total <- function(argument)
+#' plot2017listsize()
+plot2017listsize <- function()
 {
   ccggeom <- sf::st_read("https://openprescribing.net/api/1.0/org_location/?org_type=ccg") %>%
     dplyr::rename(row_name = name) %>%
     dplyr::select(-ons_code, -org_type)
 
-  dataframe <- dplyr::full_join(
-    (openprescribingR::list_size() %>%
-       dplyr::select(-row_id)),
-    (openprescribingR::spending_by_CCG(chemical_section_or_presentation_code =
-                       argument)),
-    by = c("row_name", "date")) %>%
+  dataframe <- openprescribingR::list_size() %>%
+       dplyr::select(-row_id) %>%
     dplyr::full_join(ccggeom, by="row_name") %>%
     sf::st_as_sf() %>%
-    dplyr::mutate(label = stringr::str_c(row_name, " £", format(round(actual_cost, 2), nsmall = 2)))
+    dplyr::mutate(label = stringr::str_c(row_name, " No. = ", total_list_size))
 
-  daterange <- dplyr::filter(dataframe, date=="2017-01-01"|date=="2017-02-01"|date=="2017-03-01"|date=="2017-04-01"|date=="2017-05-01")$actual_cost
+  daterange <- dplyr::filter(dataframe, date=="2017-01-01"|date=="2017-02-01"|date=="2017-03-01"|date=="2017-04-01"|date=="2017-05-01")$total_list_size
 
   pal <- leaflet::colorNumeric(palette = "magma",
-                      domain = daterange)
+                      domain = dataframe$total_list_size)
 
   leaflet::leaflet(data=dataframe) %>%
     leaflet::setView(-1.341739, 53.104565, zoom = 6) %>%
@@ -37,7 +32,7 @@ plot2017total <- function(argument)
       label = dplyr::filter(dataframe,
                             date=="2017-05-01")$label,
       fillOpacity =0.8,
-      color = ~pal(actual_cost),
+      color = ~pal(total_list_size),
       group = "May",
       highlightOptions = highlightOptions(color = "black",
                                           weight = 2)) %>%
@@ -48,7 +43,7 @@ plot2017total <- function(argument)
       label = dplyr::filter(dataframe,
                             date=="2017-04-01")$label,
       fillOpacity =0.8,
-      color = ~pal(actual_cost),
+      color = ~pal(total_list_size),
       group = "April",
       highlightOptions = highlightOptions(color = "black",
                                           weight = 2)) %>%
@@ -59,7 +54,7 @@ plot2017total <- function(argument)
       label = dplyr::filter(dataframe,
                             date=="2017-03-01")$label,
       fillOpacity =0.8,
-      color = ~pal(actual_cost),
+      color = ~pal(total_list_size),
       group = "March",
       highlightOptions = highlightOptions(color = "black",
                                           weight = 2)) %>%
@@ -70,7 +65,7 @@ plot2017total <- function(argument)
       label = dplyr::filter(dataframe,
                             date=="2017-02-01")$label,
       fillOpacity =0.8,
-      color = ~pal(actual_cost),
+      color = ~pal(total_list_size),
       group = "February",
       highlightOptions = highlightOptions(color = "black",
                                           weight = 2)) %>%
@@ -81,15 +76,13 @@ plot2017total <- function(argument)
       label = dplyr::filter(dataframe,
                             date=="2017-01-01")$label,
       fillOpacity =0.8,
-      color = ~pal(actual_cost),
+      color = ~pal(total_list_size),
       group = "January",
       highlightOptions = highlightOptions(color = "black",
                                           weight = 2)) %>%
 
     leaflet::addLegend("bottomleft", pal = pal, values = daterange,
-              title = stringr::str_c(argument,
-                                     " Items total cost"),
-              labFormat = labelFormat(prefix = "£"),
+              title = "Total list size",
               opacity = 1
     ) %>%
 
