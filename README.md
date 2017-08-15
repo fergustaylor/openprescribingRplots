@@ -1,6 +1,6 @@
 # OpenprescribingRplots
 
-A small package for creating plots in R from openprescribing data.
+A small package for for loading openprescribing.net data into R graphics.
 
 Installation:
 
