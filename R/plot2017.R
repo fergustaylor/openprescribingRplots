@@ -25,7 +25,7 @@ plot2017 <- function(chemical_section_or_presentation_code)
 
   daterange <- dplyr::filter(dataframe, date=="2017-01-01"|date=="2017-02-01"|date=="2017-03-01"|date=="2017-04-01"|date=="2017-05-01")$costperperson
 
-  pal <- colorNumeric(palette = "magma",
+  pal <- leaflet::colorNumeric(palette = "magma",
                       domain = daterange)
 
   leaflet::leaflet(data=dataframe) %>%
