@@ -12,10 +12,15 @@ Load:
 
 `library(openprescribingRplots)`
 
-__This function plots a leaflet map of cost per person, per CCG, per month of the input BNF section, drug or chemical.__
+__These functions plots leaflet maps overlaying chloropleths of spending data, or list size per CCG.__
 
- *  plot2017()
-
+ *  plot2017person(argument)
+ *  plot2017total(argument)
+ *  plot2017items(argument)
+ *  plot2017quantity(argument)
+ *  plot2017quantityperitems(argument)
+ *  plot2017listsize()
+ 
 An introduction to the tool is given here - [https://fergustaylor.github.io/blog/post7](https://fergustaylor.github.io/blog/post7)
 
 Further explanation on openprescribingR is given here - [https://fergustaylor.github.io/openprescribingR/](https://fergustaylor.github.io/openprescribingR/)
