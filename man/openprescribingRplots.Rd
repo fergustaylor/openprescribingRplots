@@ -4,11 +4,11 @@
 \name{openprescribingRplots}
 \alias{openprescribingRplots}
 \alias{openprescribingRplots-package}
-\title{OpenprescribingRplot: A small package for creating plots in R from openprescribing data.}
+\title{OpenprescribingRplots: A small package for creating plots in R from openprescribing data.}
 \description{
-OpenprescribingRplot: A small package for creating plots in R from openprescribing data.
+OpenprescribingRplots: A small package for creating plots in R from openprescribing data.
 }
-\section{openprescribingRplot Functions}{
+\section{openprescribingRplots Functions}{
 
 
 * plot2017(chemical_section_or_presentation_code = NULL)
