@@ -5,8 +5,8 @@
 #' @importFrom magrittr "%>%"
 #' @export
 #' @examples
-#' plot2017("7.4.5")
-plot2017 <- function(argument)
+#' plot2017person("7.4.5")
+plot2017person <- function(argument)
 {
   ccggeom <- sf::st_read("https://openprescribing.net/api/1.0/org_location/?org_type=ccg") %>%
     dplyr::rename(row_name = name) %>%
