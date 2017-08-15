@@ -5,7 +5,7 @@
 #' @importFrom magrittr "%>%"
 #' @export
 #' @examples
-#' A plot of BNF section 7.4.5 spending = plot2017("7.4.5")
+#' plot2017("7.4.5")
 plot2017 <- function(chemical_section_or_presentation_code)
 {
   ccggeom <- sf::st_read("https://openprescribing.net/api/1.0/org_location/?org_type=ccg") %>%

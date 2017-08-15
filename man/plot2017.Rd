@@ -16,5 +16,5 @@ Returns a leaflet plot (html widget) of cost per person, per CCG, per month of t
 Plot a leaflet map of cost per person, per CCG, per month of a BNF section, chemical or presentations.
 }
 \examples{
-A plot of BNF section 7.4.5 spending = plot2017("7.4.5")
+plot2017("7.4.5")
 }

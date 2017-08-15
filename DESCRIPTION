@@ -7,7 +7,9 @@ Imports:
     tidyverse,
     leaflet,
     sf,
-    stringr
+    stringr,
+    magrittr,
+    dplyr
 Authors@R: person("Fergus", "Taylor", email = "fergustay@gmail.com", role = c("aut", "cre"))
 Description: I wrote the original openprescribingR package to import data directly into R.
     This package gives a set of functions which can produce plots in R based on the arguments applied.
