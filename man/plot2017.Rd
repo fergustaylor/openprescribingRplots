@@ -4,10 +4,10 @@
 \alias{plot2017}
 \title{Plot a leaflet map of cost per person, per CCG, per month of a BNF section, chemical or presentations.}
 \usage{
-plot2017(chemical_section_or_presentation_code)
+plot2017(argument)
 }
 \arguments{
-\item{chemical_section_or_presentation_code}{An ID unique to BNF sections, chemicals or presentations.}
+\item{argument}{An ID unique to BNF sections, chemicals or presentations.}
 }
 \value{
 Returns a leaflet plot (html widget) of cost per person, per CCG, per month of the input BNF section, drug or chemcial.
