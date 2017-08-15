@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot2017.R
 \name{plot2017}
 \alias{plot2017}
-\title{Search for the official name and code of BNF sections, chemicals and presentations.}
+\title{Plot a leaflet map of cost per person, per CCG, per month of a BNF section, chemical or presentations.}
 \usage{
 plot2017(chemical_section_or_presentation_code)
 }
@@ -13,7 +13,7 @@ plot2017(chemical_section_or_presentation_code)
 Returns a leaflet plot (html widget) of cost per person, per CCG, per month of the input BNF section, drug or chemcial.
 }
 \description{
-Search for the official name and code of BNF sections, chemicals and presentations.
+Plot a leaflet map of cost per person, per CCG, per month of a BNF section, chemical or presentations.
 }
 \examples{
 A plot of BNF section 7.4.5 spending = plot2017("7.4.5")
