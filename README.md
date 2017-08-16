@@ -14,7 +14,7 @@ Load:
 
 __These functions plots leaflet maps overlaying chloropleths of spending data, or list size per CCG.__
 
- *  plot2017person(argument)
+ *  plot2017perperson(argument)
  *  plot2017total(argument)
  *  plot2017items(argument)
  *  plot2017quantity(argument)

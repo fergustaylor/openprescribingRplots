@@ -11,7 +11,7 @@ OpenprescribingRplots: A small package for creating plots in R from openprescrib
 \section{openprescribingRplots Functions}{
 
 
-* plot2017person(argument = NULL)
+* plot2017perperson(argument = NULL)
 * plot2017total(argument = NULL)
 * plot2017listsize()
 * plot2017items(argument = NULL)

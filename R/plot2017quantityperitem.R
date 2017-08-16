@@ -6,7 +6,7 @@
 #' @export
 #' @examples
 #' plot2017quantityperitem("7.4.5")
-plot2017items <- function(argument)
+plot2017quantityperitem <- function(argument)
 {
   ccggeom <- sf::st_read("https://openprescribing.net/api/1.0/org_location/?org_type=ccg") %>%
     dplyr::rename(row_name = name) %>%
@@ -21,7 +21,7 @@ plot2017items <- function(argument)
     dplyr::mutate(quantityperitem = quantity/items) %>%
     dplyr::full_join(ccggeom, by="row_name") %>%
     sf::st_as_sf() %>%
-    dplyr::mutate(label = stringr::str_c(row_name, " No.", quantityperitem))
+    dplyr::mutate(label = stringr::str_c(row_name, " No.", format(round(quantityperitem, 2), nsmall = 2)))
 
   daterange <- dplyr::filter(dataframe, date=="2017-01-01"|date=="2017-02-01"|date=="2017-03-01"|date=="2017-04-01"|date=="2017-05-01")$quantityperitem
 

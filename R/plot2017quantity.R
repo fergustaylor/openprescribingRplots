@@ -20,7 +20,7 @@ plot2017quantity <- function(argument)
     by = c("row_name", "date")) %>%
     dplyr::full_join(ccggeom, by="row_name") %>%
     sf::st_as_sf() %>%
-    dplyr::mutate(label = stringr::str_c(row_name, quantity))
+    dplyr::mutate(label = stringr::str_c(row_name, " ", quantity))
 
   daterange <- dplyr::filter(dataframe, date=="2017-01-01"|date=="2017-02-01"|date=="2017-03-01"|date=="2017-04-01"|date=="2017-05-01")$quantity
 
