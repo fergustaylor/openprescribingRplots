@@ -18,9 +18,5 @@ openprescribingRplots::plot2017quantityperitem("7.4.5")
 openprescribingRplots::plot2017listsize()
 ```
 
-```{r}
-leaflet::metaData
 
-leaflet::
-```
 
