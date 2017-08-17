@@ -18,7 +18,7 @@ __These functions plots leaflet maps overlaying chloropleths of spending data, o
  *  plot2017total(argument)
  *  plot2017items(argument)
  *  plot2017quantity(argument)
- *  plot2017quantityperitems(argument)
+ *  plot2017quantityperitem(argument)
  *  plot2017listsize()
  
 An introduction to the tool is given here - [https://fergustaylor.github.io/blog/post7](https://fergustaylor.github.io/blog/post7)
