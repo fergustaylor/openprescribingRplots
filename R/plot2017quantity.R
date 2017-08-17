@@ -95,6 +95,6 @@ plot2017quantity <- function(argument)
     leaflet::addLayersControl(
       baseGroups = c("May", "April", "March",
                      "February", "January", "Nothing"),
-      options = layersControlOptions(collapsed = TRUE)
+      options = leaflet::layersControlOptions(collapsed = TRUE)
     )
 }

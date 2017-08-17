@@ -89,6 +89,6 @@ plot2017listsize <- function()
     leaflet::addLayersControl(
       baseGroups = c("May", "April", "March",
                      "February", "January", "Nothing"),
-      options = layersControlOptions(collapsed = TRUE)
+      options = leaflet::layersControlOptions(collapsed = TRUE)
     )
 }

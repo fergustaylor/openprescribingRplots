@@ -14,6 +14,13 @@ openprescribingRplots::plot2017perperson("7.4.5")
 openprescribingRplots::plot2017total("7.4.5")
 openprescribingRplots::plot2017items("7.4.5")
 openprescribingRplots::plot2017quantity("7.4.5")
-openprescribingRplots::plot2017quantityperitems("7.4.5")
+openprescribingRplots::plot2017quantityperitem("7.4.5")
 openprescribingRplots::plot2017listsize()
 ```
+
+```{r}
+leaflet::metaData
+
+leaflet::
+```
+
