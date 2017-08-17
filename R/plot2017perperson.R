@@ -33,58 +33,58 @@ plot2017perperson <- function(argument)
     leaflet::addTiles()  %>%
 
     leaflet::addPolygons(
-      data = dplyr::filter(dataframe, date=="2017-05-01"),
+      data = dplyr::filter(dataframe, date=="2017-05-01")$geometry,
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-05-01")$label,
       fillOpacity =0.8,
       color = ~pal(costperperson),
       group = "May",
-      highlightOptions = highlightOptions(color = "black",
+      highlightOptions = leaflet::highlightOptions(color = "black",
                                           weight = 2)) %>%
 
     leaflet::addPolygons(
-      data = dplyr::filter(dataframe, date=="2017-04-01"),
+      data = dplyr::filter(dataframe, date=="2017-04-01")$geometry,
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-04-01")$label,
       fillOpacity =0.8,
       color = ~pal(costperperson),
       group = "April",
-      highlightOptions = highlightOptions(color = "black",
+      highlightOptions = leaflet::highlightOptions(color = "black",
                                           weight = 2)) %>%
 
     leaflet::addPolygons(
-      data = dplyr::filter(dataframe, date=="2017-03-01"),
+      data = dplyr::filter(dataframe, date=="2017-03-01")$geometry,
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-03-01")$label,
       fillOpacity =0.8,
       color = ~pal(costperperson),
       group = "March",
-      highlightOptions = highlightOptions(color = "black",
+      highlightOptions = leaflet::highlightOptions(color = "black",
                                           weight = 2)) %>%
 
     leaflet::addPolygons(
-      data = dplyr::filter(dataframe, date=="2017-02-01"),
+      data = dplyr::filter(dataframe, date=="2017-02-01")$geometry,
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-02-01")$label,
       fillOpacity =0.8,
       color = ~pal(costperperson),
       group = "February",
-      highlightOptions = highlightOptions(color = "black",
+      highlightOptions = leaflet::highlightOptions(color = "black",
                                           weight = 2)) %>%
 
     leaflet::addPolygons(
-      data = dplyr::filter(dataframe, date=="2017-01-01"),
+      data = dplyr::filter(dataframe, date=="2017-01-01")$geometry,
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-01-01")$label,
       fillOpacity =0.8,
       color = ~pal(costperperson),
       group = "January",
-      highlightOptions = highlightOptions(color = "black",
+      highlightOptions = leaflet::highlightOptions(color = "black",
                                           weight = 2)) %>%
 
     leaflet::addLegend("bottomleft", pal = pal, values = daterange,

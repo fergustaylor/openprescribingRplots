@@ -107,7 +107,3 @@ plot2017 <- function(argument)
 
 plot2017("7.4.5")
 ```
-```{r}
-openprescribingRplots::plot2017("7.4.1")
-```
-

@@ -1,5 +1,7 @@
 Package: openprescribingRplots
 Title: Create plots in R from openprescribing data
+Description: I wrote the original openprescribingR package to import data directly into R.
+    This package gives a set of functions which can produce plots in R based on the arguments applied.
 Version: 0.0.0.9000
 Depends: R (>= 3.4.0)
 Imports:
@@ -9,12 +11,11 @@ Imports:
     sf,
     stringr,
     magrittr,
-    dplyr,
-    RCurl
+    dplyr
 Authors@R: person("Fergus", "Taylor", email = "fergustay@gmail.com", role = c("aut", "cre"))
-Description: I wrote the original openprescribingR package to import data directly into R.
-    This package gives a set of functions which can produce plots in R based on the arguments applied.
 License: MIT
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/fergustaylor/openprescribingRplots/
+BugReports: https://github.com/fergustaylor/openprescribingRplots/issues
 RoxygenNote: 6.0.1.9000

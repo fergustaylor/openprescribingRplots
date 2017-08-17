@@ -10,10 +10,10 @@ library(openprescribingRplots)
 ```
 
 ```{r}
-plot2017person("7.4.5")
-plot2017total("7.4.5")
-plot2017items("7.4.5")
-plot2017quantity("7.4.5")
-plot2017quantityperitems("7.4.5")
-plot2017listsize()
+openprescribingRplots::plot2017perperson("7.4.5")
+openprescribingRplots::plot2017total("7.4.5")
+openprescribingRplots::plot2017items("7.4.5")
+openprescribingRplots::plot2017quantity("7.4.5")
+openprescribingRplots::plot2017quantityperitems("7.4.5")
+openprescribingRplots::plot2017listsize()
 ```
