@@ -90,7 +90,7 @@ plot2017perperson <- function(argument)
     leaflet::addLegend("bottomleft", pal = pal, values = daterange,
               title = stringr::str_c(argument,
                                      " Items cost per person on CCG list"),
-              labFormat = labelFormat(prefix = "£"),
+              labFormat = leaflet::labelFormat(prefix = "£"),
               opacity = 1
     ) %>%
 
