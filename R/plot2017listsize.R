@@ -12,7 +12,7 @@ plot2017listsize <- function()
     dplyr::select(-ons_code, -org_type)
 
   dataframe <- openprescribingR::list_size() %>%
-       dplyr::select(-row_id) %>%
+    dplyr::select(-row_id) %>%
     dplyr::full_join(ccggeom, by="row_name") %>%
     sf::st_as_sf() %>%
     dplyr::mutate(label = stringr::str_c(row_name, " No. = ", total_list_size))
@@ -83,8 +83,7 @@ plot2017listsize <- function()
 
     leaflet::addLegend("bottomleft", pal = pal, values = daterange,
               title = "Total list size",
-              opacity = 1
-    ) %>%
+              opacity = 1) %>%
 
     leaflet::addLayersControl(
       baseGroups = c("May", "April", "March",

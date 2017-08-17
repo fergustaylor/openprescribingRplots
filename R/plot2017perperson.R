@@ -88,15 +88,14 @@ plot2017perperson <- function(argument)
                                           weight = 2)) %>%
 
     leaflet::addLegend("bottomleft", pal = pal, values = daterange,
-              title = stringr::str_c(argument,
-                                     " Items cost per person on CCG list"),
-              labFormat = leaflet::labelFormat(prefix = "£"),
-              opacity = 1
-    ) %>%
+                       title = stringr::str_c(argument,
+                                              " Items cost per person on CCG list"),
+                       labFormat = leaflet::labelFormat(prefix = "£"),
+                       opacity = 1) %>%
 
     leaflet::addLayersControl(
       baseGroups = c("May", "April", "March",
                      "February", "January", "Nothing"),
-      options = leaflet::layersControlOptions(collapsed = TRUE)
-    )
+      options = leaflet::layersControlOptions(collapsed = TRUE))
+
 }
