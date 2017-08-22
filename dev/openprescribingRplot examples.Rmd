@@ -1,0 +1,31 @@
+---
+title: "R Notebook"
+---
+
+```{r}
+library(devtools)
+devtools::install_github("fergustaylor/openprescribingRplots")
+library(openprescribingRplots)
+```
+
+```{r}
+openprescribingRplots::plot2017perperson("7.4.5")
+openprescribingRplots::plot2017total("7.4.5")
+openprescribingRplots::plot2017items("7.4.5")
+openprescribingRplots::plot2017quantity("7.4.5")
+openprescribingRplots::plot2017quantityperitem("7.4.5")
+openprescribingRplots::plot2017listsize()
+```
+Reading layer `OGRGeoJSON' from data source `https://openprescribing.net/api/1.0/org_location/?org_type=ccg' using driver `GeoJSON'
+Simple feature collection with 207 features and 3 fields (with 1 geometry empty)
+geometry type:  MULTIPOLYGON
+dimension:      XY
+bbox:           xmin: -6.418591 ymin: 49.86467 xmax: 1.762979 ymax: 55.81111
+epsg (SRID):    4326
+proj4string:    +proj=longlat +datum=WGS84 +no_defs
+Column `row_name` joining factors with different levels, coercing to character vector
+
+Error in UseMethod("metaData") : no applicable method for 'metaData' applied to an object of class "c('sfc_MULTIPOLYGON', 'sfc')"
+
+
+

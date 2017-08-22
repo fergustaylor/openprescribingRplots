@@ -33,7 +33,7 @@ plot2017perperson <- function(argument)
     leaflet::addTiles()  %>%
 
     leaflet::addPolygons(
-      data = dplyr::filter(dataframe, date=="2017-05-01")$geometry,
+      data = dplyr::filter(dataframe, date=="2017-05-01"),
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-05-01")$label,
@@ -44,7 +44,7 @@ plot2017perperson <- function(argument)
                                           weight = 2)) %>%
 
     leaflet::addPolygons(
-      data = dplyr::filter(dataframe, date=="2017-04-01")$geometry,
+      data = dplyr::filter(dataframe, date=="2017-04-01"),
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-04-01")$label,
@@ -55,7 +55,7 @@ plot2017perperson <- function(argument)
                                           weight = 2)) %>%
 
     leaflet::addPolygons(
-      data = dplyr::filter(dataframe, date=="2017-03-01")$geometry,
+      data = dplyr::filter(dataframe, date=="2017-03-01"),
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-03-01")$label,
@@ -66,7 +66,7 @@ plot2017perperson <- function(argument)
                                           weight = 2)) %>%
 
     leaflet::addPolygons(
-      data = dplyr::filter(dataframe, date=="2017-02-01")$geometry,
+      data = dplyr::filter(dataframe, date=="2017-02-01"),
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-02-01")$label,
@@ -77,7 +77,7 @@ plot2017perperson <- function(argument)
                                           weight = 2)) %>%
 
     leaflet::addPolygons(
-      data = dplyr::filter(dataframe, date=="2017-01-01")$geometry,
+      data = dplyr::filter(dataframe, date=="2017-01-01"),
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-01-01")$label,

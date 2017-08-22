@@ -20,7 +20,7 @@ plot2017items <- function(argument)
     by = c("row_name", "date")) %>%
     dplyr::full_join(ccggeom, by="row_name") %>%
     sf::st_as_sf() %>%
-    dplyr::mutate(label = stringr::str_c(row_name, items))
+    dplyr::mutate(label = stringr::str_c(row_name, " ", items))
 
   daterange <- dplyr::filter(dataframe, date=="2017-01-01"|date=="2017-02-01"|date=="2017-03-01"|date=="2017-04-01"|date=="2017-05-01")$items
 
@@ -32,7 +32,7 @@ plot2017items <- function(argument)
     leaflet::addTiles()  %>%
 
     leaflet::addPolygons(
-      data = dplyr::filter(dataframe, date=="2017-05-01")$geometry,
+      data = dplyr::filter(dataframe, date=="2017-05-01"),
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-05-01")$label,
@@ -43,7 +43,7 @@ plot2017items <- function(argument)
                                           weight = 2)) %>%
 
     leaflet::addPolygons(
-      data = dplyr::filter(dataframe, date=="2017-04-01")$geometry,
+      data = dplyr::filter(dataframe, date=="2017-04-01"),
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-04-01")$label,
@@ -54,7 +54,7 @@ plot2017items <- function(argument)
                                           weight = 2)) %>%
 
     leaflet::addPolygons(
-      data = dplyr::filter(dataframe, date=="2017-03-01")$geometry,
+      data = dplyr::filter(dataframe, date=="2017-03-01"),
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-03-01")$label,
@@ -65,7 +65,7 @@ plot2017items <- function(argument)
                                           weight = 2)) %>%
 
     leaflet::addPolygons(
-      data = dplyr::filter(dataframe, date=="2017-02-01")$geometry,
+      data = dplyr::filter(dataframe, date=="2017-02-01"),
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-02-01")$label,
@@ -76,7 +76,7 @@ plot2017items <- function(argument)
                                           weight = 2)) %>%
 
     leaflet::addPolygons(
-      data = dplyr::filter(dataframe, date=="2017-01-01")$geometry,
+      data = dplyr::filter(dataframe, date=="2017-01-01"),
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-01-01")$label,
@@ -89,8 +89,7 @@ plot2017items <- function(argument)
     leaflet::addLegend("bottomleft", pal = pal, values = daterange,
               title = stringr::str_c(argument,
                                      " Items per CCG list"),
-              opacity = 1
-    ) %>%
+              opacity = 1) %>%
 
     leaflet::addLayersControl(
       baseGroups = c("May", "April", "March",
