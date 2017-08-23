@@ -3,6 +3,7 @@
 #' @param argument An ID unique to BNF sections, chemicals or presentations.
 #' @return Returns a leaflet plot (html widget) of total items, per CCG, per month of a BNF section, chemical or presentations.
 #' @importFrom magrittr "%>%"
+#' @import sf
 #' @export
 #' @examples
 #' plot2017items("7.4.5")
@@ -58,7 +59,7 @@ plot2017items <- function(argument)
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-03-01")$label,
-      fillOpacity =0.8,
+      fillOpacity = 0.8,
       color = ~pal(dataframe$items),
       group = "March",
       highlightOptions = leaflet::highlightOptions(color = "black",
@@ -69,7 +70,7 @@ plot2017items <- function(argument)
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-02-01")$label,
-      fillOpacity =0.8,
+      fillOpacity = 0.8,
       color = ~pal(dataframe$items),
       group = "February",
       highlightOptions = leaflet::highlightOptions(color = "black",
@@ -80,7 +81,7 @@ plot2017items <- function(argument)
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-01-01")$label,
-      fillOpacity =0.8,
+      fillOpacity = 0.8,
       color = ~pal(dataframe$items),
       group = "January",
       highlightOptions = leaflet::highlightOptions(color = "black",

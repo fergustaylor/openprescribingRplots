@@ -3,6 +3,7 @@
 #' @param argument An ID unique to BNF sections, chemicals or presentations.
 #' @return Returns a leaflet plot (html widget) of cost per person, per CCG, per month of the input BNF section, drug or chemcial.
 #' @importFrom magrittr "%>%"
+#' @import sf
 #' @export
 #' @examples
 #' plot2017perperson("7.4.5")

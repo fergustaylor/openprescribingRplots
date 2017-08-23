@@ -2,6 +2,7 @@
 #'
 #' @return Returns a leaflet plot (html widget) of total list size, per CCG, per month.
 #' @importFrom magrittr "%>%"
+#' @import sf
 #' @export
 #' @examples
 #' plot2017listsize()
@@ -31,7 +32,7 @@ plot2017listsize <- function()
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-05-01")$label,
-      fillOpacity =0.8,
+      fillOpacity = 0.8,
       color = ~pal(dataframe$total_list_size),
       group = "May",
       highlightOptions = leaflet::highlightOptions(color = "black",
@@ -42,7 +43,7 @@ plot2017listsize <- function()
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-04-01")$label,
-      fillOpacity =0.8,
+      fillOpacity = 0.8,
       color = ~pal(dataframe$total_list_size),
       group = "April",
       highlightOptions = leaflet::highlightOptions(color = "black",
@@ -53,7 +54,7 @@ plot2017listsize <- function()
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-03-01")$label,
-      fillOpacity =0.8,
+      fillOpacity = 0.8,
       color = ~pal(dataframe$total_list_size),
       group = "March",
       highlightOptions = leaflet::highlightOptions(color = "black",
@@ -64,7 +65,7 @@ plot2017listsize <- function()
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-02-01")$label,
-      fillOpacity =0.8,
+      fillOpacity = 0.8,
       color = ~pal(dataframe$total_list_size),
       group = "February",
       highlightOptions = leaflet::highlightOptions(color = "black",
@@ -75,7 +76,7 @@ plot2017listsize <- function()
       weight = 2,
       label = dplyr::filter(dataframe,
                             date=="2017-01-01")$label,
-      fillOpacity =0.8,
+      fillOpacity = 0.8,
       color = ~pal(dataframe$total_list_size),
       group = "January",
       highlightOptions = leaflet::highlightOptions(color = "black",

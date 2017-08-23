@@ -3,6 +3,7 @@
 #' @param argument An ID unique to BNF sections, chemicals or presentations.
 #' @return Returns a leaflet plot (html widget) of quantity per item, per CCG, per month of the input BNF section, drug or chemcial.
 #' @importFrom magrittr "%>%"
+#' @import sf
 #' @export
 #' @examples
 #' plot2017quantityperitem("7.4.5")
