@@ -24,7 +24,7 @@ plot2017items <- function(argument)
 
   daterange <- dplyr::filter(dataframe, date=="2017-01-01"|date=="2017-02-01"|date=="2017-03-01"|date=="2017-04-01"|date=="2017-05-01")$items
 
-  pal <- leaflet::colorNumeric(palette = "magma",
+  pal <- leaflet::colorNumeric(palette = "viridis",
                       domain = daterange)
 
   leaflet::leaflet(data=dataframe) %>%

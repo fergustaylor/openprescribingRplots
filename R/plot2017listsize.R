@@ -19,7 +19,7 @@ plot2017listsize <- function()
 
   daterange <- dplyr::filter(dataframe, date=="2017-01-01"|date=="2017-02-01"|date=="2017-03-01"|date=="2017-04-01"|date=="2017-05-01")$total_list_size
 
-  pal <- leaflet::colorNumeric(palette = "magma",
+  pal <- leaflet::colorNumeric(palette = "viridis",
                       domain = dataframe$total_list_size)
 
   leaflet::leaflet(data=dataframe) %>%
