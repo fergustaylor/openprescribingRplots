@@ -8,7 +8,7 @@
 #' plot2017quantityperitem("7.4.5")
 plot2017quantityperitem <- function(argument)
 {
-  ccggeom <- sf::st_read("https://openprescribing.net/api/1.0/org_location/?org_type=ccg") %>%
+  ccggeom <- openprescribingR::CCG_boundaries_or_location(as_sf = TRUE) %>%
     dplyr::rename(row_name = name) %>%
     dplyr::select(-ons_code, -org_type)
 
