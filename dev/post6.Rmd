@@ -1,0 +1,104 @@
+---
+title: "R Notebook"
+---
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(openprescribingR)
+library(sf)
+library(ggplot2)
+library(gridExtra)
+library(ggrepel)
+library(ggiraph)
+```
+
+```{r, warning=FALSE, message=FALSE}
+ccggeom <- CCG_boundaries_or_location(as_sf = TRUE) %>%
+  dplyr::rename(row_name = name) %>%
+  select(-ons_code, -org_type)
+
+dataframe <- dplyr::full_join(
+  
+  (openprescribingR::list_size() %>%
+  select(-row_id)), 
+  
+  (spending_by_CCG(chemical_section_or_presentation_code = "7.4.5")), 
+  
+  by = c("row_name", "date")) %>%
+  dplyr::mutate(costperperson = actual_cost/total_list_size) %>%
+  dplyr::full_join(ccggeom, by="row_name") %>%
+  st_as_sf() %>%
+  dplyr::mutate(label = stringr::str_c(row_name, " £", format(round(costperperson, 2), nsmall = 2))) %>%
+  dplyr::mutate(label2 = stringr::str_c("£", format(round(costperperson, 2), nsmall = 2)))
+
+rm(ccggeom)
+
+#Find empty geometries
+#st_dimension(st_sfc(dataframe$geometry))
+
+#Dataframe without empty geoms
+dataframe <- dataframe[c(!is.na(st_dimension(st_sfc(dataframe$geometry)))),]
+
+#Centroids
+dataframe <- dataframe %>%
+  mutate('lon' = st_coordinates(st_centroid(dataframe$geometry))[,1]) %>%
+  mutate('lat' = st_coordinates(st_centroid(dataframe$geometry))[,2])
+```
+
+```{r}
+plot1 <- filter(dataframe, date == "2017-05-01") %>%
+  ggplot() +
+  geom_sf()
+
+plot2 <- filter(dataframe, date == "2017-05-01") %>%
+  ggplot() +
+  geom_sf(aes(fill = costperperson)) +
+  theme(legend.position="none")
+
+ggsave("plot1.png", plot = plot1)
+ggsave("plot2.png", plot = plot2)
+```
+
+```{r}
+selectiondata <- filter(dataframe, date == "2017-05-01")
+polygons <- fortify(as_Spatial(selectiondata$geometry))
+
+#adding costperperson/name to polygons
+selectiondata$id <- str_c("ID", 1:207)
+
+for (i in 1:length(selectiondata$costperperson)){
+polygons$label2[!is.na(match(polygons$id, selectiondata$id[i]))] <- as.character(selectiondata$label2[i])
+polygons$costperperson[!is.na(match(polygons$id, selectiondata$id[i]))] <- as.character(selectiondata$costperperson[i])
+polygons$label[!is.na(match(polygons$id, selectiondata$id[i]))] <- as.character(selectiondata$label[i])
+polygons$name[!is.na(match(polygons$id, selectiondata$id[i]))] <- as.character(selectiondata$row_name[i])
+}
+
+plot3 =  ggplot() +
+  geom_polygon_interactive(data = polygons, aes(x = long, y = lat, group = group, tooltip = name)) +
+  coord_sf(crs= 4326, datum = sf::st_crs(4326))
+ggiraph(code = {print(plot3)}, width_svg = 17.07, height_svg = 13.46) %>%
+htmlwidgets::saveWidget("plot3")
+
+plot4 =  ggplot() +
+  geom_sf(data = selectiondata, aes(fill = costperperson)) +
+  geom_polygon_interactive(data = polygons, aes(x = long, y = lat, group = group, tooltip = label2), alpha = 0.1) +
+  coord_sf(crs= 4326, datum = sf::st_crs(4326))
+ggiraph(code = {print(plot4)}, width_svg = 17.07, height_svg = 13.46)  %>%
+htmlwidgets::saveWidget("plot4")
+
+plot5 =  ggplot() +
+  geom_sf(data = selectiondata, aes(fill = costperperson)) +
+  geom_polygon_interactive(data = polygons, aes(x = long, y = lat, group = group, tooltip = label), alpha = 0.1) +
+  coord_sf(crs= 4326, datum = sf::st_crs(4326))
+
+ggiraph(code = {print(plot5)}, width_svg = 17.07, height_svg = 13.46) %>%
+htmlwidgets::saveWidget("plot5")
+```
+
+```{r}
+gif <- ggplot(dataframe %>% dplyr::filter(dataframe$date == "2017-01-01" | dataframe$date == "2017-02-01" | dataframe$date == "2017-03-01" | dataframe$date == "2017-04-01" |dataframe$date == "2017-05-01")) +
+  geom_sf(aes(fill = costperperson, frame=date)) +
+  theme(legend.position="none")
+
+gganimate::gganimate(gif, "output.gif")
+```

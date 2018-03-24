@@ -1,0 +1,31 @@
+---
+title: "99J"
+---
+
+```{r}
+library(openprescribingR)
+library(tidyverse)
+```
+
+```{r}
+spending_by_CCG(CCG_code = "99J")
+```
+
+```{r}
+names <- read_csv("~/Dropbox/T201703CHEM+SUBS.CSV")
+names <- names[1:2]
+```
+
+```{r}
+sections <- 1:23
+sections <- as.character(sections)
+
+data <- lapply(sections, function(x) {
+  spending_by_practice(CCG_code = "99J", BNF_section_code = x) %>%
+  mutate("bnf section" = x)
+})
+
+ccgdata <- rbind_list(data)
+```
+
+
