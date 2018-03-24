@@ -21,7 +21,7 @@ __These functions plots leaflet maps overlaying chloropleths of spending data, o
  *  plot2017quantityperitem(argument)
  *  plot2017listsize()
  
-An introduction to the tool is given here - [https://fergustaylor.github.io/blog/post7](https://fergustaylor.github.io/blog/post7)
+An introduction to the tool is given here - [https://fergustaylor.github.io/post/openprescribingr-plots/](https://fergustaylor.github.io/post/openprescribingr-plots/)
 
 Further explanation on openprescribingR is given here - [https://fergustaylor.github.io/openprescribingR/](https://fergustaylor.github.io/openprescribingR/)
 
