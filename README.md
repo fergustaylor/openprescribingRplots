@@ -24,3 +24,5 @@ __These functions plots leaflet maps overlaying chloropleths of spending data, o
 An introduction to the tool is given here - [https://fergustaylor.github.io/blog/post7](https://fergustaylor.github.io/blog/post7)
 
 Further explanation on openprescribingR is given here - [https://fergustaylor.github.io/openprescribingR/](https://fergustaylor.github.io/openprescribingR/)
+
+As well as more examples of how I've used this repository, [here.](https://fergustaylor.github.io/categories/openprescribing/)
